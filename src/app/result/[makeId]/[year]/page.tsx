@@ -75,7 +75,10 @@ export default async function Page({ params }: { params: Params }) {
       {vehicleModels.length > 0 ? (
         <ul className="space-y-2">
           {vehicleModels.map((model) => (
-            <li key={model.Model_ID} className="border p-2 rounded-[1rem]">
+            <li
+              key={model.Model_ID}
+              className="border p-2 rounded-lg bg-gray-800 shadow-md m-2"
+            >
               {model.Model_Name}
             </li>
           ))}
