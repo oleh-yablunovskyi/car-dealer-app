@@ -25,7 +25,10 @@ const VehicleFilter: React.FC<VehicleFilterProps> = ({ vehicleMakes }) => {
         Select Vehicle Make and Model Year
       </h1>
       <div className="mb-6">
-        <label htmlFor="make" className="block text-sm font-medium text-gray-300 mb-2">
+        <label
+          htmlFor="make"
+          className="block text-sm font-medium text-gray-300 mb-2"
+        >
           Vehicle Make
         </label>
         <select
@@ -33,10 +36,12 @@ const VehicleFilter: React.FC<VehicleFilterProps> = ({ vehicleMakes }) => {
           name="make"
           className={`block w-full border border-gray-300 bg-gray-900 rounded-md p-2`}
           value={selectedMakeId}
-          onChange={(e) => setSelectedMakeId(e.target.value ? Number(e.target.value) : '')}
+          onChange={e =>
+            setSelectedMakeId(e.target.value ? Number(e.target.value) : '')
+          }
         >
           <option value="">Select a make</option>
-          {vehicleMakes.map((make) => (
+          {vehicleMakes.map(make => (
             <option key={make.MakeId} value={make.MakeId}>
               {make.MakeName}
             </option>
@@ -44,7 +49,10 @@ const VehicleFilter: React.FC<VehicleFilterProps> = ({ vehicleMakes }) => {
         </select>
       </div>
       <div className="mb-6">
-        <label htmlFor="year" className="block text-sm font-medium text-gray-00 mb-2">
+        <label
+          htmlFor="year"
+          className="block text-sm font-medium text-gray-00 mb-2"
+        >
           Model Year
         </label>
         <select
@@ -52,10 +60,12 @@ const VehicleFilter: React.FC<VehicleFilterProps> = ({ vehicleMakes }) => {
           name="year"
           className="block w-full border border-gray-300 bg-gray-900 rounded-md p-2"
           value={selectedYear}
-          onChange={(e) => setSelectedYear(e.target.value ? Number(e.target.value) : '')}
+          onChange={e =>
+            setSelectedYear(e.target.value ? Number(e.target.value) : '')
+          }
         >
           <option value="">Select a year</option>
-          {yearsArray.map((year) => (
+          {yearsArray.map(year => (
             <option key={year} value={year}>
               {year}
             </option>

@@ -12,7 +12,10 @@ interface Params {
   year: string;
 }
 
-async function getVehicleModels(makeId: string, year: string): Promise<Model[]> {
+async function getVehicleModels(
+  makeId: string,
+  year: string
+): Promise<Model[]> {
   const baseUrl = process.env.NEXT_PUBLIC_VEHICLE_API_BASE_URL;
   const res = await fetch(
     `${baseUrl}/GetModelsForMakeIdYear/makeId/${makeId}/modelyear/${year}?format=json`
@@ -46,7 +49,7 @@ export async function generateStaticParams() {
   const yearsArray = getYears();
 
   const paramsList = makes.flatMap((make: { MakeId: number }) =>
-    yearsArray.map((year) => ({
+    yearsArray.map(year => ({
       makeId: make.MakeId.toString(),
       year: year.toString(),
     }))
@@ -74,7 +77,7 @@ export default async function Page({ params }: { params: Params }) {
       </h1>
       {vehicleModels.length > 0 ? (
         <ul className="space-y-2">
-          {vehicleModels.map((model) => (
+          {vehicleModels.map(model => (
             <li
               key={model.Model_ID}
               className="border p-2 rounded-lg bg-gray-800 shadow-md m-2"

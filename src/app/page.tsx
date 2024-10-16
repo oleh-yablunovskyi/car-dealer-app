@@ -8,9 +8,7 @@ interface Make {
 
 async function getVehicleMakes(): Promise<Make[]> {
   const baseUrl = process.env.NEXT_PUBLIC_VEHICLE_API_BASE_URL;
-  const res = await fetch(
-    `${baseUrl}/GetMakesForVehicleType/car?format=json`
-  );
+  const res = await fetch(`${baseUrl}/GetMakesForVehicleType/car?format=json`);
 
   if (!res.ok) {
     throw new Error('Failed to fetch vehicle makes');
